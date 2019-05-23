@@ -18,4 +18,19 @@ public class HomeController {
         mv.setViewName("redirect:http://www.baidu.com");
         return mv;
     }
+
+
+    @RequestMapping("local")
+    public ModelAndView local(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("redirect:/test1");
+        return mv;
+    }
+
+
+    @RequestMapping("test1")
+    public String test1(){
+        return "你好，张三丰1";
+    }
+
 }
