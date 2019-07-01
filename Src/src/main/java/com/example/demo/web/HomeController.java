@@ -1,18 +1,19 @@
 package com.example.demo.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class HomeController {
-    @RequestMapping("Index")
+    @RequestMapping(value="Index", method = RequestMethod.POST)
     public String Index(){
         return "你好，世界22";
     }
 
     /*测试Baidu重定向*/
-    @RequestMapping("Baidu")
+    @RequestMapping(value="Baidu", method = RequestMethod.POST)
     public ModelAndView Index1(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("redirect:http://www.baidu.com");
@@ -20,7 +21,7 @@ public class HomeController {
     }
 
 
-    @RequestMapping("local")
+    @RequestMapping(value="local", method = RequestMethod.POST)
     public ModelAndView local(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("redirect:/test1");
@@ -28,7 +29,7 @@ public class HomeController {
     }
 
 
-    @RequestMapping("test1")
+    @RequestMapping(value="test1", method = RequestMethod.POST)
     public String test1(){
         return "你好，张三丰1";
     }
