@@ -14,7 +14,7 @@ import java.util.List;
 public class TeacherController {
 
     @ApiOperation(value = "根据用户id查询教师")
-    @RequestMapping(value="/getTeachers", method = RequestMethod.POST)
+    @RequestMapping(value="/getTeachers", method = RequestMethod.GET)
     public Teacher getTeachers() {
         Teacher teacher = new Teacher();
         long id=1;
