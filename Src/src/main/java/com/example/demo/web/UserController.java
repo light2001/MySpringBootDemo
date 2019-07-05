@@ -27,31 +27,30 @@ public class UserController {
         List<User> users=userMapper.getAll();
         return users;
     }
-
+    @ApiOperation(value = "获取用户信息")
     @RequestMapping(value="/getUser", method = RequestMethod.POST)
     public User getUser(Long id) {
         User user=userMapper.getOne(id);
         return user;
     }
-
+    @ApiOperation(value = "新增")
     @RequestMapping(value="/add", method = RequestMethod.POST)
     public void save(User user) {
         userMapper.insert(user);
     }
-
+    @ApiOperation(value = "更新")
     @RequestMapping(value="update", method = RequestMethod.POST)
     public void update(User user) {
         userMapper.update(user);
     }
-
+    @ApiOperation(value = "删除")
     @RequestMapping(value="/delete/{id}", method = RequestMethod.POST)
     public void delete(@PathVariable("id") Long id) {
         userMapper.delete(id);
     }
 
 
-
-    /*测试Baidu重定向*/
+    @ApiOperation(value = "重定向到cex的页面")
     @RequestMapping(value="CEX", method = RequestMethod.POST)
     public ModelAndView CexIndex(){
         ModelAndView mv = new ModelAndView();
