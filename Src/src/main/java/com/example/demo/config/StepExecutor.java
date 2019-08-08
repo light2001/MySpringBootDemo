@@ -14,7 +14,7 @@ public class StepExecutor implements Runnable {
      */
     public void startStreamTask() {
         try {
-            Runtime.getRuntime().exec("cmd   /c   start   http://localhost:8080/swagger-ui.html");
+            Runtime.getRuntime().exec("cmd   /c   start   http://localhost:9006/swagger-ui.html");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
