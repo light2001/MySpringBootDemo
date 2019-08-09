@@ -7,11 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.example.demo.mapper")
-public class DemoApplication {
+public class MyApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication springApplication = new SpringApplication(DemoApplication.class);
+		SpringApplication springApplication = new SpringApplication(MyApplication.class);
 		springApplication.addListeners(new ApplicationStartup());
 		springApplication.run(args);
 	}

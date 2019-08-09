@@ -4,9 +4,15 @@ import java.io.Serializable;
 
 import com.example.demo.enums.UserSexEnum;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="User")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String userName;
     private String passWord;
