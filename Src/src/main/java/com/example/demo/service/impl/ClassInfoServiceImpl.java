@@ -18,11 +18,19 @@ public class ClassInfoServiceImpl implements ClassInfoService {
         //1.调用crudRepository的接口
         return repository.findById(id).get();
         //2.调用我们自己写的接口
-//        return repository.getClassInfo(id);
+        //return repository.getClassInfo(id);
     }
 
     @Override
     public Iterable<ClassInfo> getAllInfo() {
         return repository.findAll();
+    }
+    @Override
+    public void Delete(Long Id){
+        repository.deleteById(Id);
+    }
+    @Override
+    public void Save(ClassInfo Input){
+        repository.save(Input);
     }
 }
