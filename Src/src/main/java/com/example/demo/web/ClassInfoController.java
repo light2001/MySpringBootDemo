@@ -31,14 +31,14 @@ public class ClassInfoController {
     }
 
     @ApiOperation(value = "创建信息")
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void create(ClassInfo Input) {
         service.Save(Input);
     }
 
 
     @ApiOperation(value = "删除")
-    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public void create(Long id) {
         service.Delete(id);
     }
