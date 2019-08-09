@@ -6,8 +6,6 @@ import com.example.demo.service.ClassInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
-
 
 @Service
 public class ClassInfoServiceImpl implements ClassInfoService {
@@ -15,16 +13,16 @@ public class ClassInfoServiceImpl implements ClassInfoService {
     ClassInfoRepository repository;
 
     @Override
-    public ClassInfo getClassInfo(BigInteger id){
+    public ClassInfo getClassInfo(Long id) {
         //有两种方式：
         //1.调用crudRepository的接口
-//        return repository.findOne(id);
+        return repository.findById(id).get();
         //2.调用我们自己写的接口
-        return repository.getClassInfo(id);
+//        return repository.getClassInfo(id);
     }
 
     @Override
-    public Iterable<ClassInfo> info(){
+    public Iterable<ClassInfo> getAllInfo() {
         return repository.findAll();
     }
 }
