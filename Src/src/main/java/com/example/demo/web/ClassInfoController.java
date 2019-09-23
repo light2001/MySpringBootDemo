@@ -1,44 +1,56 @@
 package com.example.demo.web;
 
 import com.example.demo.model.ClassInfo;
+import com.example.demo.pojo.ClassInfoDto;
 import com.example.demo.service.ClassInfoService;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import java.math.BigInteger;
+import java.util.Iterator;
+import java.util.List;
 
 @RestController
-@RequestMapping(value="/Class")
+@RequestMapping(value="/ClassInfo")
 public class ClassInfoController {
     @Autowired
     ClassInfoService service;
 
     @ApiOperation(value = "根据班级ID返回班级信息")
-    @RequestMapping(value="/getClassInfo/{id}", method = RequestMethod.GET)
-    public ClassInfo getClassInfo(@PathVariable("id") BigInteger id){
-        HttpServletRequest request = ((ServletRequestAttributes)
-                RequestContextHolder.getRequestAttributes()).getRequest();
-        String querey=request.getParameter("id");
-        String myid=request.getParameter("id");
-        return service.getClassInfo(id);
+    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
+    public ClassInfo getClassInfo(@PathVariable("id") Long id) {
+        ClassInfo info = service.getClassInfo(id);
+        return info;
     }
 
-    @ApiOperation(value = "测试班级信息")
-    @RequestMapping(value="/TestClassInfo", method = RequestMethod.POST)
-    public ClassInfo Add(@RequestBody ClassInfo input){
-        ClassInfo model = input;
-        return model;
+
+    @ApiOperation(value = "返回所有信息")
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public Iterable<ClassInfo> getAll() {
+        return service.getAllInfo();
     }
 
-    @ApiOperation(value = "测试班级信息,不加RequestBody")
-    @RequestMapping(value="/TestClassInfoNOBody", method = RequestMethod.POST)
-    public ClassInfo TestInfo(ClassInfo input){
-        ClassInfo model = input;
-        return model;
+    @ApiOperation(value = "创建信息")
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public void create(ClassInfo Input) {
+        service.Save(Input);
     }
+
+
+    @ApiOperation(value = "删除")
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public void delete(Long id) {
+        service.Delete(id);
+    }
+
+    @ApiOperation(value = "测试DTO数据")
+    @RequestMapping(value = "/GetDto", method = RequestMethod.POST)
+    public ClassInfoDto GetDto(@RequestBody ClassInfo input){
+        ClassInfoDto dto=new ClassInfoDto();
+        BeanUtils.copyProperties(input,dto);
+        return dto;
+    }
+
 }

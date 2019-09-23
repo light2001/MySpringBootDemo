@@ -11,12 +11,16 @@ import java.math.BigInteger;
 @Getter
 @Setter
 @Entity
-@Table(name="ClassInfo")
+@Table(name="class_info")
 public class ClassInfo implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private BigInteger id;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="id")
+    private Long id;
+    @Column(name="class_name")
     private String className;
+    @Column(name="teacher_name")
     private String teacherName;
+    @Column(name="grade_name")
     private String gradeName;
 }
