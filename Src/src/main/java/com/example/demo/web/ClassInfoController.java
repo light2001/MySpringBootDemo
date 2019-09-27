@@ -2,13 +2,17 @@ package com.example.demo.web;
 
 import com.example.demo.model.ClassInfo;
 import com.example.demo.pojo.ClassInfoDto;
+import com.example.demo.pojo.TeacherDto;
+import com.example.demo.pojo.TeacherNewDto;
 import com.example.demo.service.ClassInfoService;
 import io.swagger.annotations.ApiOperation;
+import jdk.nashorn.internal.runtime.arrays.IteratorAction;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -52,5 +56,55 @@ public class ClassInfoController {
         BeanUtils.copyProperties(input,dto);
         return dto;
     }
+
+    @ApiOperation(value = "测试automap数据转换")
+    @RequestMapping(value = "/TestAutomapper", method = RequestMethod.GET)
+    public TeacherDto TestAutoMapper(){
+        TeacherDto techaerDto=new TeacherDto();
+        TeacherDto techaerDtoData=new TeacherDto();
+        techaerDto.setName("张三");
+        techaerDto.setAge(19);
+        techaerDto.setSex("男");
+        List<ClassInfoDto> cdto=new ArrayList<>();
+        ClassInfoDto c1=new ClassInfoDto();
+        c1.setClassName("一班");
+        c1.setGradeName("高一");
+        cdto.add(c1);
+        ClassInfoDto c2=new ClassInfoDto();
+        c2.setClassName("二班");
+        c2.setGradeName("高二");
+        cdto.add(c2);
+        techaerDto.setClassList(cdto);
+
+        BeanUtils.copyProperties(techaerDto,techaerDtoData);
+
+        return techaerDtoData;
+    }
+
+
+    @ApiOperation(value = "测试automap数据转换，不同数据类型")
+    @RequestMapping(value = "/TestAutomapperNew", method = RequestMethod.GET)
+    public TeacherNewDto TestAutoMapperNew(){
+        TeacherDto techaerDto=new TeacherDto();
+        TeacherNewDto techaerDtoData=new TeacherNewDto();
+        techaerDto.setName("张三");
+        techaerDto.setAge(19);
+        techaerDto.setSex("男");
+        List<ClassInfoDto> cdto=new ArrayList<>();
+        ClassInfoDto c1=new ClassInfoDto();
+        c1.setClassName("一班");
+        c1.setGradeName("高一");
+        cdto.add(c1);
+        ClassInfoDto c2=new ClassInfoDto();
+        c2.setClassName("二班");
+        c2.setGradeName("高二");
+        cdto.add(c2);
+        techaerDto.setClassList(cdto);
+
+        BeanUtils.copyProperties(techaerDto,techaerDtoData);
+
+        return techaerDtoData;
+    }
+
 
 }
