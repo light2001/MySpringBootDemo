@@ -1,9 +1,6 @@
 package com.example.demo.web;
 
-import com.example.demo.mapper.TeacherMapper;
 import com.example.demo.model.Teacher;
-import com.example.demo.model.User;
-import com.example.demo.repo.TeacherRepository;
 import com.example.demo.service.TeacherService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/Teacher")
 public class TeacherController {
 
     @Autowired
-    TeacherService service;
+    private TeacherService service;
 
     @ApiOperation(value = "获取所有老师")
     @RequestMapping(value="/getTeachers", method = RequestMethod.GET)

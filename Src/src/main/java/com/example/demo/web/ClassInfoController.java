@@ -20,7 +20,7 @@ import java.util.List;
 @RequestMapping(value="/ClassInfo")
 public class ClassInfoController {
     @Autowired
-    ClassInfoService service;
+    private ClassInfoService service;
 
     @ApiOperation(value = "根据班级ID返回班级信息")
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
@@ -75,9 +75,7 @@ public class ClassInfoController {
         c2.setGradeName("高二");
         cdto.add(c2);
         techaerDto.setClassList(cdto);
-
         BeanUtils.copyProperties(techaerDto,techaerDtoData);
-
         return techaerDtoData;
     }
 
