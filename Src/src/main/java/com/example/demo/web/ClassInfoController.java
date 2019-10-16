@@ -2,28 +2,24 @@ package com.example.demo.web;
 
 import com.example.demo.model.ClassInfo;
 import com.example.demo.model.Teacher;
-import com.example.demo.model.User;
 import com.example.demo.pojo.ClassInfoDto;
 import com.example.demo.pojo.TeacherDto;
 import com.example.demo.pojo.TeacherNewDto;
-import com.example.demo.service.ClassInfoService;
+import com.example.demo.service.IClassInfoService;
 import io.swagger.annotations.ApiOperation;
-import jdk.nashorn.internal.runtime.arrays.IteratorAction;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 
 @RestController
 @RequestMapping(value="/ClassInfo")
 public class ClassInfoController {
     @Autowired
-    private ClassInfoService service;
+    private IClassInfoService service;
 
     @ApiOperation(value = "根据班级ID返回班级信息")
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)

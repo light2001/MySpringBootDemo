@@ -1,7 +1,7 @@
 package com.example.demo.web;
 
 import com.example.demo.model.Teacher;
-import com.example.demo.service.TeacherService;
+import com.example.demo.service.ITeacherService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TeacherController {
 
     @Autowired
-    private TeacherService service;
+    private ITeacherService service;
 
     @ApiOperation(value = "获取所有老师")
     @RequestMapping(value="/getTeachers", method = RequestMethod.GET)
