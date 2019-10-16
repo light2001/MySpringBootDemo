@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.demo.mapper.ClassMapper;
 import com.example.demo.model.ClassInfo;
 import com.example.demo.service.IClassInfoService;
@@ -20,11 +21,14 @@ public class ClassInfoServiceImpl implements IClassInfoService {
 
     @Override
     public List<ClassInfo> getAllInfo() {
-        return mapper.selectList(null);
+        QueryWrapper<ClassInfo> wrapper=new QueryWrapper<>();
+        wrapper.lambda()
+        .like(ClassInfo::getTeacherName,"老师");
+
+        return mapper.selectList(wrapper);
     }
     @Override
     public Integer Delete(Long Id){
-
        return  mapper.deleteById(Id);
     }
     @Override
