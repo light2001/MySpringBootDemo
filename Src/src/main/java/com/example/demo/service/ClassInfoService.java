@@ -2,9 +2,11 @@ package com.example.demo.service;
 
 import com.example.demo.model.ClassInfo;
 
+import java.util.List;
+
 public interface ClassInfoService {
     public ClassInfo getClassInfo(Long id);
-    public Iterable<ClassInfo> getAllInfo();
-    public void Delete(Long Id);
-    public void Save(ClassInfo Input);
+    public List<ClassInfo> getAllInfo();
+    public Integer Delete(Long Id);
+    public Integer Save(ClassInfo Input);
 }

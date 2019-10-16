@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigInteger;
 
-@Repository
-public interface ClassInfoRepository  extends CrudRepository<ClassInfo, Long> {
-
-    @Query("from ClassInfo where id =:id ")
-    public ClassInfo getClassInfo(@Param("id") Long id);
-}
+//@Repository
+//public interface ClassInfoRepository  extends CrudRepository<ClassInfo, Long> {
+//
+//    @Query("from ClassInfo where id =:id ")
+//    public ClassInfo getClassInfo(@Param("id") Long id);
+//}

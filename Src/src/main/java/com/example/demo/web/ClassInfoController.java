@@ -1,6 +1,8 @@
 package com.example.demo.web;
 
 import com.example.demo.model.ClassInfo;
+import com.example.demo.model.Teacher;
+import com.example.demo.model.User;
 import com.example.demo.pojo.ClassInfoDto;
 import com.example.demo.pojo.TeacherDto;
 import com.example.demo.pojo.TeacherNewDto;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -103,6 +106,37 @@ public class ClassInfoController {
 
         return techaerDtoData;
     }
+
+
+    @ApiOperation(value = "测试排序")
+    @RequestMapping(value = "/TestSort", method = RequestMethod.GET)
+    public List<Teacher> TestSort(){
+        List<Teacher> result=new ArrayList<>();
+        result.add(new Teacher()
+                .builder()
+                .name("张三")
+                .id(5L)
+                .sex(1)
+                .remark("")
+                .build());
+        result.add(new Teacher()
+                .builder()
+                .name("张三")
+                .id(3L)
+                .sex(1)
+                .remark("")
+                .build());
+        result.add(new Teacher()
+                .builder()
+                .name("张三")
+                .id(1L)
+                .sex(1)
+                .remark("")
+                .build());
+        result.sort(Comparator.comparing(Teacher::getId).reversed() );
+        return result;
+    }
+
 
 
 }

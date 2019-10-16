@@ -1,30 +1,32 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.mapper.TeacherMapper;
 import com.example.demo.model.Teacher;
-import com.example.demo.repo.TeacherRepository;
 import com.example.demo.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TeacherServiceImpl implements TeacherService {
     @Autowired
-    TeacherRepository repository;
+    private TeacherMapper mapper;
 
     @Override
     public Teacher get(Long Id){
-        return repository.findById(Id).get();
+        return mapper.selectById(Id);
     }
     @Override
-    public Iterable<Teacher> getAll(){
-        return repository.findAll();
+    public List<Teacher> getAll(){
+        return mapper.selectList(null);
     }
     @Override
-    public void Delete(Long Id){
-        repository.deleteById(Id);
+    public int Delete(Long Id){
+         return mapper.deleteById(Id);
     }
     @Override
-    public void Save(Teacher Input){
-        repository.save(Input);
+    public int Save(Teacher Input){
+        return mapper.insert(Input);
     }
 }

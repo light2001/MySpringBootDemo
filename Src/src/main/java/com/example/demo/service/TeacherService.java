@@ -2,9 +2,11 @@ package com.example.demo.service;
 
 import com.example.demo.model.Teacher;
 
+import java.util.List;
+
 public interface TeacherService {
     public Teacher get(Long id);
-    public Iterable<Teacher> getAll();
-    public void Delete(Long Id);
-    public void Save(Teacher Input);
+    public List<Teacher> getAll();
+    public int Delete(Long Id);
+    public int Save(Teacher Input);
 }

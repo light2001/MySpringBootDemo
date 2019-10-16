@@ -1,14 +1,13 @@
 package com.example.demo.model;
 
 import com.example.demo.enums.UserSexEnum;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-@Setter
-@Getter
-@Entity
+@Data
+@Builder
+@AllArgsConstructor
 @Table(name="Teacher")
 public class Teacher implements Serializable {
 
