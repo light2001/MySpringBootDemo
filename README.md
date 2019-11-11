@@ -3,6 +3,7 @@
 - Mybatis Plus
 - Spring boot
 - Swagger UI
+- Spring Scheduled(spring boot自带)
 
 #### 关于更换orm的说明
 ```
@@ -10,4 +11,6 @@
   最近发现Mybatis plus更好用，现在已经开新的分支，用上了，Mybatis plus
 ```
 
+#### 功能集成说明
+- spring scheduled
 待续。。。
