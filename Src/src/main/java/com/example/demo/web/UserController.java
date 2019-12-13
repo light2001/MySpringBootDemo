@@ -22,13 +22,13 @@ public class UserController {
     @Autowired
     private UserRepository userService;
 
-    @ApiOperation(value = "根据用户id查询用户")
-    @RequestMapping(value="/getUsers", method = RequestMethod.POST)
+    @ApiOperation(value = "获取用户列表")
+    @RequestMapping(value="/getUsers", method = RequestMethod.GET)
     public List<User> getUsers() {
         List<User> users=userService.findAll();
         return users;
     }
-    @ApiOperation(value = "获取用户信息")
+    @ApiOperation(value = "根据ID获取用户信息")
     @RequestMapping(value="/getUser", method = RequestMethod.POST)
     public User getUser(Long id) {
         User user=userService.getOne(id);

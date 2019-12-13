@@ -29,9 +29,9 @@ public class Swagger2 {
 
         return new ApiInfoBuilder()
                 //自定义信息可按需求填写
-                .title("Spring Boot中使用Swagger构建RESTful APIs")
+                .title("Demo项目，测试API")
                 .description("SpringBootDemo")
-                .termsOfServiceUrl("http://www.baidu.com")
+                .termsOfServiceUrl("https://github.com/light2001")
                 .contact(new Contact("阿华","",""))
                 .version("1.0")
                 .build();
