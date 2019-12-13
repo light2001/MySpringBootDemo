@@ -2,8 +2,9 @@ package com.example.demo.web;
 
 import java.util.List;
 
-import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
+import com.example.demo.repo.UserRepository;
+import com.example.demo.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,34 +20,34 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserRepository userService;
 
     @ApiOperation(value = "根据用户id查询用户")
     @RequestMapping(value="/getUsers", method = RequestMethod.POST)
     public List<User> getUsers() {
-        List<User> users=userMapper.getAll();
+        List<User> users=userService.findAll();
         return users;
     }
     @ApiOperation(value = "获取用户信息")
     @RequestMapping(value="/getUser", method = RequestMethod.POST)
     public User getUser(Long id) {
-        User user=userMapper.getOne(id);
+        User user=userService.getOne(id);
         return user;
     }
     @ApiOperation(value = "新增")
     @RequestMapping(value="/add", method = RequestMethod.POST)
     public void save(User user) {
-        userMapper.insert(user);
+        userService.save(user);
     }
     @ApiOperation(value = "更新")
     @RequestMapping(value="update", method = RequestMethod.POST)
     public void update(User user) {
-        userMapper.update(user);
+        userService.save(user);
     }
     @ApiOperation(value = "删除")
     @RequestMapping(value="/delete/{id}", method = RequestMethod.POST)
     public void delete(@PathVariable("id") Long id) {
-        userMapper.delete(id);
+        userService.deleteById(id);
     }
 
 
