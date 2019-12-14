@@ -17,7 +17,7 @@ public class HomeController {
 
     /*测试Baidu重定向*/
     @ApiOperation(value = "重定向到百度")
-    @RequestMapping(value="Baidu", method = RequestMethod.POST)
+    @RequestMapping(value="Baidu", method = RequestMethod.GET)
     public ModelAndView Index1(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("redirect:http://www.baidu.com");
