@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/MySpringBootDemo.iml" filepath="$PROJECT_DIR$/.idea/MySpringBootDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-security-oauth2-login/spring-security-oauth2-login.iml" filepath="$PROJECT_DIR$/spring-security-oauth2-login/spring-security-oauth2-login.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-security-vue-login/spring-security-vue-login.iml" filepath="$PROJECT_DIR$/spring-security-vue-login/spring-security-vue-login.iml" />
     </modules>
   </component>
