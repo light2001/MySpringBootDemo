@@ -1,9 +1,11 @@
 # spring security config
-
-security:
-  user:
-    name: zzr
-    password: zzr
+spring:
+  security:
+    user:
+      name: zzr
+      password: zzr
+      role: ADMIN
 
 server:
   port: 8081
+

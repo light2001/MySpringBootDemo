@@ -11,13 +11,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spring-security-oauth2-login" target="8" />
-      <module name="spring-security-vue-login" target="8" />
+      <module name="spring-security-oauth2-login" target="1.8" />
+      <module name="spring-security-vue-login" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="spring-security-oauth2-login" options="" />
+      <module name="spring-security-oauth2-login" options="-parameters" />
       <module name="spring-security-vue-login" options="-parameters" />
     </option>
   </component>
