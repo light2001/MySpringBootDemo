@@ -1,0 +1,12 @@
+1.获取token
+ post
+ http://localhost:8081/oauth/token?grant_type=password&scope=read_userinfo&username=zzr&password=123456
+    header:
+    accept:application/json
+    content-type:application/x-www-form-urlencoded
+    Authorization:Basic Y2xpZW50YXBwOjExMjIzMw==
+2.访问资源
+get
+http://localhost:8081/api/example/hello
+header:
+authorization:bearer 3735ceb7-752e-42ce-9187-7927299e283e

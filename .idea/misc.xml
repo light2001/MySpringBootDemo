@@ -8,6 +8,8 @@
       <list>
         <option value="$PROJECT_DIR$/spring-security-vue-login/pom.xml" />
         <option value="$PROJECT_DIR$/spring-security-oauth2-login/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-security-oauth2-sso-login/pom.xml" />
+        <option value="E:/mx_project/spring-security-oauth2-sso-login-server/pom.xml" />
       </list>
     </option>
   </component>

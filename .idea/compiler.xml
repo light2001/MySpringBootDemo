@@ -7,17 +7,25 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-security-oauth2-login" />
+        <module name="spring-security-oauth2-sso-login-server" />
         <module name="spring-security-vue-login" />
+        <module name="spring-security-oauth2-sso-login-client1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="spring-security-oauth2-login" target="1.8" />
+      <module name="spring-security-oauth2-sso-login" target="1.8" />
+      <module name="spring-security-oauth2-sso-login-client1" target="1.8" />
+      <module name="spring-security-oauth2-sso-login-server" target="1.8" />
       <module name="spring-security-vue-login" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="spring-security-oauth2-login" options="-parameters" />
+      <module name="spring-security-oauth2-sso-login" options="-parameters" />
+      <module name="spring-security-oauth2-sso-login-client1" options="-parameters" />
+      <module name="spring-security-oauth2-sso-login-server" options="-parameters" />
       <module name="spring-security-vue-login" options="-parameters" />
     </option>
   </component>
