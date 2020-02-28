@@ -21,7 +21,7 @@ public class MyUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		return new User(username, passwordEncoder.encode("123456"),
-				AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
+				AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_admin"));
 	}
 
 }
