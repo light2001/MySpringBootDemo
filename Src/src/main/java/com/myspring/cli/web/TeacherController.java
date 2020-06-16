@@ -2,6 +2,7 @@ package com.myspring.cli.web;
 
 import com.myspring.cli.model.Teacher;
 import com.myspring.cli.service.TeacherService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/Teacher")
+@Api(value="老师模块",tags="老师模块")
 public class TeacherController {
 
     @Autowired

@@ -5,6 +5,7 @@ import com.myspring.cli.pojo.ClassInfoDto;
 import com.myspring.cli.pojo.TeacherDto;
 import com.myspring.cli.pojo.TeacherNewDto;
 import com.myspring.cli.service.ClassInfoService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value="/ClassInfo")
+@Api(value="班级模块",tags="班级模块")
 public class ClassInfoController {
     @Autowired
     private ClassInfoService service;

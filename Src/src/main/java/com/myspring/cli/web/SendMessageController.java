@@ -1,5 +1,6 @@
 package com.myspring.cli.web;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value="/Message")
+@Api(value="消息测试",tags="消息测试")
 public class SendMessageController {
 //   使用RabbitTemplate,这提供了接收/发送等等方法
     @Autowired

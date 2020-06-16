@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-@Api(value="用户模块")
+@Api(value="用户模块",tags="用户模块")
 @RestController
 @RequestMapping(value="/User")
 public class UserController {
@@ -21,18 +21,18 @@ public class UserController {
     @Autowired
     private UserRepository userService;
 
-    @ApiOperation(value = "获取用户列表")
-    @RequestMapping(value="/getUsers", method = RequestMethod.GET)
-    public List<User> getUsers() {
-        List<User> users=userService.findAll();
-        return users;
-    }
-    @ApiOperation(value = "根据ID获取用户信息")
-    @RequestMapping(value="/getUser", method = RequestMethod.POST)
-    public User getUser(Long id) {
-        User user=userService.getOne(id);
-        return user;
-    }
+//    @ApiOperation(value = "获取用户列表")
+//    @RequestMapping(value="/getUsers", method = RequestMethod.GET)
+//    public List<User> getUsers() {
+//        List<User> users=userService.findAll();
+//        return users;
+//    }
+//    @ApiOperation(value = "根据ID获取用户信息")
+//    @RequestMapping(value="/getUser", method = RequestMethod.POST)
+//    public User getUser(Long id) {
+//        User user=userService.getOne(id);
+//        return user;
+//    }
     @ApiOperation(value = "新增")
     @RequestMapping(value="/add", method = RequestMethod.POST)
     public void save(User user) {
@@ -43,11 +43,11 @@ public class UserController {
     public void update(User user) {
         userService.save(user);
     }
-    @ApiOperation(value = "删除")
-    @RequestMapping(value="/delete/{id}", method = RequestMethod.POST)
-    public void delete(@PathVariable("id") Long id) {
-        userService.deleteById(id);
-    }
+//    @ApiOperation(value = "删除")
+//    @RequestMapping(value="/delete/{id}", method = RequestMethod.POST)
+//    public void delete(@PathVariable("id") Long id) {
+//        userService.deleteById(id);
+//    }
 
 
     @ApiOperation(value = "重定向到cex的页面")

@@ -7,23 +7,66 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ * Created by echisan on 2018/6/23
+ */
 @Entity
-@Data
-@Table(name="User")
-public class User implements Serializable {
+@Table(name = "jd_user")
+public class User {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
-    private String userName;
-    private String passWord;
-    private UserSexEnum userSex;
-    private String nickName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "role")
+    private String role;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return "userName " + this.userName + ", pasword " + this.passWord + "sex " + userSex.name();
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
