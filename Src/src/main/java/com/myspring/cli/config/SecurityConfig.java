@@ -48,6 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.DELETE, "/tasks/**").hasRole("ADMIN")
                 // 测试用资源，需要验证了的用户才能访问
                 .antMatchers("/auth/**").anonymous()
+                .antMatchers("/home/**").anonymous()
                 .antMatchers("/swagger-ui.html").permitAll()
                 .antMatchers(
                         HttpMethod.GET,
