@@ -1,5 +1,8 @@
 package com.myspring.cli.service;
 
-public interface IUserService {
+import com.myspring.cli.model.User;
+import com.myspring.cli.pojo.RegisterUser;
 
+public interface IUserService {
+    public User GetLoginInfo(RegisterUser user);
 }
