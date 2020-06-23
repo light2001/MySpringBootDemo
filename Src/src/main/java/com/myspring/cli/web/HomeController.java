@@ -61,5 +61,11 @@ public class HomeController {
         return info;
     }
 
+    @ApiOperation(value = "测试参数")
+    @PostMapping(value="/TestParam")
+    public String TestParam(String user,String name){
+        String result="参数是:user:" +user+ ", name:" +name;
+        return result;
+    }
 
 }
