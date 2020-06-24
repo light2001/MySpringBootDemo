@@ -21,7 +21,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(s);
-        return new JwtUser(user);
+        if (user == null) {
+            throw new UsernameNotFoundException("该用户不存在");
+        }
+        JwtUser Juser=new JwtUser(user);
+        return Juser;
     }
+
 
 }
